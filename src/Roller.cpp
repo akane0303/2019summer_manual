@@ -40,8 +40,8 @@ Roller::Roller(){
     bottomsub=nh.subscribe<std_msgs::Int16>("bottom_encoder_data",10,&Roller::rollerbottomcallback,this);
 
 
-    Toppub=nh.advertise<std_msgs::Int16>("move_top_motor!",1);
-    Bottompub=nh.advertise<std_msgs::Int16>("move_bottom_motor!",1);
+    Toppub=nh.advertise<std_msgs::Int16>("move_top_motor",1);
+    Bottompub=nh.advertise<std_msgs::Int16>("move_bottom_motor",1);
 
     count=0;
     angle=0;
