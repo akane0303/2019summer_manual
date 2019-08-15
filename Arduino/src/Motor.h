@@ -1,4 +1,4 @@
-#ifdef MOTOR_H
+#ifndef MOTOR_H
 #define MOTOR_H
 
 #include<Arduino.h>
@@ -19,13 +19,13 @@ Motor::Motor(int pin1,int pin2){
 
 }
 void Motor::run(int speed){
-    if(speed>0){
+    if(speed>=0){
         analogWrite(pin1_,speed);
-        digitlWrite(pin2_,LOW);
+        digitalWrite(pin2_,LOW);
     }
-    if(speed<0){
+    if(speed<=0){
         digitalWrite(pin1_,LOW);
-        analogWrite(pin2_-speed);
+        analogWrite(pin2_,-speed);
     }
 }
 #endif

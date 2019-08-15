@@ -1,3 +1,4 @@
+#include <Arduino.h>
 #include "ros.h"
 #include <std_msgs/Int16.h>
 #include <std_msgs/UInt16MultiArray.h>
@@ -6,6 +7,19 @@
 #include <Arduino.h>
 #include <Servo.h>
 #include"Motor.h"
+void EncoderTop();
+void EncoderBottom();
+void setup();
+void loop();
+#line 1 "src/sketch.ino"
+//#include "ros.h"
+//#include <std_msgs/Int16.h>
+//#include <std_msgs/UInt16MultiArray.h>
+//#include <std_msgs/Int32.h>
+//#include <std_msgs/Bool.h>
+//#include <Arduino.h>
+//#include <Servo.h>
+//#include"Motor.h"
 //
 int pinT[2]={13,14};
 int pinB[2]={15,16};
@@ -71,8 +85,8 @@ void topCallback(const std_msgs::Int16& subMsg){
     //top motor run
     topmotor.run(subMsg.data);
 }
-ros::Subscriber<std_msgs::Int16>sub1("move_top_motor",&topCallback);
 
+ros::Subscriber<std_msgs::Int16>sub1("move_top_motor", &topCallback);
 void bottomCallback(const std_msgs::Int16& subMsg){
     //bottom motor run
     bottommotor.run(subMsg.data);

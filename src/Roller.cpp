@@ -63,7 +63,7 @@ void Roller::publish(){
     std_msgs::Int16  move_bottom_motor_msg;
 
     angle=(count/120)*360;
-    speed=angle-oldangle/0.001;
+    speed=(angle-oldangle)/0.001;
     
     move_top_motor_msg.data=kp*(target-speed);
     move_bottom_motor_msg.data=kp*(target-speed);
